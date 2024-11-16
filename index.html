@@ -1,178 +1,557 @@
-<html><head><base href="." />
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BonkCoin Clone</title>
+<html><head><base href="/" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gorirat Token - The Future of Meme Finance</title>
 <style>
+:root {
+  --primary: #918563;
+  --dark: #1a1a1a;
+  --light: #ffffff;
+  --accent: #ff8fb8;
+  --warm-gradient: linear-gradient(45deg, #d4af37, #c19a49, #b38a38);
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Baloo 2', cursive;  /* Update this line */
 }
 
 body {
-    background: #13141D;
-    color: white;
+  background-color: var(--dark);
+  color: var(--light);
+  overflow-x: hidden;
+  position: relative;
+  background: linear-gradient(-45deg, #1a1a1a, #2a1f3d, #1f2a3d, #3d1f2a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, rgba(255,99,71,0.2) 0%, transparent 70%);
-    z-index: 1;
+.navbar {
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(26, 26, 26, 0.9);
+  backdrop-filter: blur(10px);
 }
 
 .logo {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 2rem;
-    animation: float 3s ease-in-out infinite;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  padding: 2px;
 }
 
-.title {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(45deg, #FF6347, #FFD700);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-.subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    color: #888;
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: var(--light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+}
+
+.social-icons svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--light);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 10%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  background: var(--warm-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  animation: warmGlow 3s ease-in-out infinite;
+}
+
+@keyframes warmGlow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2);
+  }
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-inline: auto;
 }
 
 .cta-button {
-    background: linear-gradient(45deg, #FF6347, #FFD700);
-    border: none;
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: transform 0.3s;
-    text-decoration: none;
-    margin-bottom: 3rem;
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--light);
+  background: var(--warm-gradient);
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(145, 133, 99, 0.3);
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(145, 133, 99, 0.4);
 }
 
-.tokenomics {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    z-index: 2;
-    position: relative;
+.cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(145, 133, 99, 0.2);
 }
 
-.tokenomics h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    background: linear-gradient(45deg, #FF6347, #FFD700);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.features-section {
+  padding: 5rem 10%;
+  background: rgba(255, 64, 129, 0.05);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.tokenomics-section {
+  padding: 5rem 10%;
+  text-align: center;
+  background: rgba(255, 64, 129, 0.03);
 }
 
 .tokenomics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
-.tokenomics-item {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s;
+.tokenomics-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  transition: transform 0.3s;
+  border: 1px solid rgba(255, 64, 129, 0.1);
 }
 
-.tokenomics-item:hover {
-    transform: translateY(-5px);
+.tokenomics-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.tokenomics-item h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #FFD700;
+.tokenomics-card h3 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
 }
 
-.tokenomics-item p {
-    color: #888;
-    line-height: 1.6;
+.tokenomics-description {
+  margin-top: 3rem;
+  max-width: 800px;
+  margin-inline: auto;
+  line-height: 1.6;
 }
 
+.distribution-chart {
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem auto;
+  height: 400px;
+}
+
+.chart-legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(26, 26, 26, 0.9);
+  color: var(--light);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(145, 133, 99, 0.2);
+}
+
+.footer p {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 5%;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+/* Add floating particles animation */
 @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-}
-
-.particles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
 }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="hero">
-        <canvas class="particles"></canvas>
-        <svg class="logo" viewBox="0 0 200 200">
-            <circle cx="100" cy="100" r="90" fill="#FF6347"/>
-            <text x="100" y="120" text-anchor="middle" fill="white" font-size="60" font-weight="bold">B</text>
-        </svg>
-        <h1 class="title">GORIRAT</h1>
-        <p class="subtitle">The Next Generation of Meme Coins on Polygon</p>
-        <a href="https://raydium.io/swap" class="cta-button">Buy Now</a>
 
-        <div class="tokenomics">
-            <h2>Tokenomics</h2>
-            <div class="tokenomics-grid">
-                <div class="tokenomics-item">
-                    <h3>Total Supply</h3>
-                    <p>100,000,000,000,000 BONK</p>
-                </div>
-                <div class="tokenomics-item">
-                    <h3>Token Distribution</h3>
-                    <p>50% Community & Airdrops<br>
-                       20% Liquidity Pool<br>
-                       15% Development<br>
-                       15% Marketing</p>
-                </div>
-                <div class="tokenomics-item">
-                    <h3>Tax Structure</h3>
-                    <p>3% Buy Tax<br>
-                       3% Sell Tax<br>
-                       Tax used for marketing and development</p>
-                </div>
-                <div class="tokenomics-item">
-                    <h3>Burning Mechanism</h3>
-                    <p>Regular token burns to reduce supply and increase value over time</p>
-                </div>
-            </div>
-        </div>
+<nav class="navbar">
+  <div class="logo">
+    <img src="CC_20241114_163008.png" alt="Stylized illustration of a gorilla face against peach-colored circular background, with dark brown fur and serious expression" width="50" height="50">
+  </div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="https://example.com/about">About</a>
+      <a href="https://example.com/tokenomics">Tokenomics</a>
+      <a href="https://example.com/roadmap">Roadmap</a>
+      <a href="https://example.com/community">Community</a>
     </div>
+    <div class="social-icons">
+      <a href="https://twitter.com/shinatoken" aria-label="Follow on X">
+        <svg viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+      <a href="https://t.me/shinatoken" aria-label="Join Telegram">
+        <svg viewBox="0 0 24 24">
+          <path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42l10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701l-.321 4.843c.47 0 .677-.216.94-.477l2.26-2.196l4.694 3.462c.865.477 1.485.232 1.698-.792l3.073-14.503c.314-1.26-.473-1.833-1.522-1.304z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to GORIRAT</h1>
+    <p>The next generation meme token powered by community and innovation. Join us in our journey to revolutionize the crypto space with unique features, strong community governance, and sustainable tokenomics.</p>
+    <a href="https://example.com/buy" class="cta-button">Buy SHINA Now</a>
+  </div>
+</section>
+
+<section class="features-section">
+  <h2 class="section-title">Why Choose SHINA?</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <h3>Community Driven</h3>
+      <p>Our community is at the heart of everything we do. Participate in governance decisions and shape the future of SHINA.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Secure & Transparent</h3>
+      <p>Built on advanced blockchain technology with fully audited smart contracts and locked liquidity for your peace of mind.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Rewarding Ecosystem</h3>
+      <p>Earn rewards through staking, farming, and participating in community events. Your loyalty gets rewarded.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tokenomics-section">
+  <h2 class="section-title">Tokenomics</h2>
+  <div class="tokenomics-grid">
+    <div class="tokenomics-card">
+      <h3>80%</h3>
+      <p>Circulating Supply</p>
+      <p>800,000,000,000 SHINA</p>
+    </div>
+    <div class="tokenomics-card">
+      <h3>15%</h3>
+      <p>Locked for Development</p>
+      <p>150,000,000,000 SHINA</p>
+    </div>
+    <div class="tokenomics-card">
+      <h3>5%</h3>
+      <p>Community Rewards</p>
+      <p>50,000,000,000 SHINA</p>
+    </div>
+  </div>
+
+  <div class="tokenomics-description">
+    <h3>Token Distribution & Economics</h3>
+    <p>Total Supply: 1,000,000,000,000 SHINA</p>
+    <p>SHINA implements a fair and sustainable tokenomics model designed to reward holders and support long-term growth.</p>
+    <ul>
+      <li>Zero team tokens - 100% fair launch</li>
+      <li>Contract will be renounced after launch</li>
+      <li>LP tokens will be locked for 1 year initially</li>
+    </ul>
+  </div>
+
+  <canvas id="distributionChart" class="distribution-chart"></canvas>
+  
+  <div class="chart-legend">
+    <div class="legend-item">
+      <div class="legend-color" style="background: #ff4081"></div>
+      <span>Circulating Supply (80%)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #ff8fb8"></div>
+      <span>Development (15%)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #ff9999"></div>
+      <span>Community Rewards (5%)</span>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2024 GORIRAT Token. All rights reserved.</p>
+</footer>
+
+<script>
+function createParticles() {
+  const particlesContainer = document.createElement('div');
+  particlesContainer.style.position = 'fixed';
+  particlesContainer.style.top = '0';
+  particlesContainer.style.left = '0';
+  particlesContainer.style.width = '100%';
+  particlesContainer.style.height = '100%';
+  particlesContainer.style.pointerEvents = 'none';
+  particlesContainer.style.zIndex = '1';
+  
+  document.body.appendChild(particlesContainer);
+  
+  for (let i = 0; i < 100; i++) {
+    const particle = document.createElement('div');
+    particle.style.position = 'absolute';
+    particle.style.width = (Math.random() * 3 + 1) + 'px';
+    particle.style.height = (Math.random() * 3 + 1) + 'px';
+    particle.style.background = `rgba(255, 255, 255, ${Math.random() * 0.3})`;
+    particle.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
+    particle.style.borderRadius = '50%';
+    particle.style.top = Math.random() * 100 + '%';
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.animation = `float ${5 + Math.random() * 10}s linear infinite`;
     
+    particlesContainer.appendChild(particle);
+  }
+
+  // Recreate particles periodically to maintain the effect
+  setInterval(() => {
+    particlesContainer.innerHTML = '';
+    for (let i = 0; i < 100; i++) {
+      const particle = document.createElement('div');
+      particle.style.position = 'absolute';
+      particle.style.width = (Math.random() * 3 + 1) + 'px';
+      particle.style.height = (Math.random() * 3 + 1) + 'px';
+      particle.style.background = `rgba(255, 255, 255, ${Math.random() * 0.3})`;
+      particle.style.boxShadow = '0 0 10px rgba(255, 255, 255, 0.5)';
+      particle.style.borderRadius = '50%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animation = `float ${5 + Math.random() * 10}s linear infinite`;
+      
+      particlesContainer.appendChild(particle);
+    }
+  }, 15000);
+}
+
+createParticles();
+
+document.addEventListener('mousemove', (e) => {
+  const mouseX = e.clientX / window.innerWidth;
+  const mouseY = e.clientY / window.innerHeight;
+  
+  document.querySelectorAll('.feature-card').forEach(card => {
+    card.style.transform = `translateY(-10px) rotate(${(mouseX - 0.5) * 2}deg)`;
+  });
+});
+
+// Add Distribution Chart
+const ctx = document.getElementById('distributionChart').getContext('2d');
+new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Circulating Supply', 'Development', 'Community Rewards'],
+        datasets: [{
+            data: [80, 15, 5],
+            backgroundColor: ['#6441f0', '#ff8fb8', '#ff9999'],
+            borderColor: 'rgba(26, 26, 26, 0.8)',
+            borderWidth: 2
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            }
+        },
+        cutout: '60%',
+        animation: {
+            animateRotate: true,
+            animateScale: true
+        }
+    }
+});
+</script>
+
+</body>
+                                                                                                                                    </html>
