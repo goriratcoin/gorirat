@@ -1,5 +1,6 @@
 <html><head><base href="/" />
-  <link rel="icon" type="image/png" href="imag.png">
+  <link rel="icon" type="image/png" 
+   href="imag.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gorirat</title>
@@ -477,7 +478,7 @@ body {
     </div>
     <div class="tokenomics-card">
       <h3>15%</h3>
-      <p>Locked for Development</p>
+      <p>Marketing</p>
       <p>1,500,000,000 GRT</p>
     </div>
     <div class="tokenomics-card">
@@ -507,7 +508,7 @@ body {
     </div>
     <div class="legend-item">
       <div class="legend-color" style="background: #c19a49"></div>
-      <span>Development (15%)</span>
+      <span>Marketing (15%)</span>
     </div>
     <div class="legend-item">
       <div class="legend-color" style="background: #b38a38"></div>
@@ -614,7 +615,7 @@ const ctx = document.getElementById('distributionChart').getContext('2d');
 new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['Airdrop', 'Development', 'Liquidity'],
+        labels: ['Airdrop', 'Marketing', 'Liquidity'],
         datasets: [{
             data: [80, 15, 5],
             backgroundColor: ['#d4af37', '#c19a49', '#b38a38'], // Changed to warm golden colors
