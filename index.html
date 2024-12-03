@@ -1,9 +1,8 @@
 <html><head><base href="/" />
-  <link rel="icon" type="image/png" 
-   href="imag.png">
+<link rel="icon" type="image/png" href="/CC_20241114_163008.png">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gorirat</title>
+<title>Gorirat Token</title>
 <style>
 :root {
   --primary: #918563;
@@ -17,7 +16,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Baloo 2', cursive;  /* Update this line */
+  font-family: 'Baloo 2', cursive;
 }
 
 html {
@@ -60,6 +59,12 @@ body {
   backdrop-filter: blur(10px);
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .logo {
   width: 50px;
   height: 50px;
@@ -70,8 +75,8 @@ body {
   justify-content: center;
   background: var(--primary);
   padding: 2px;
-  min-width: 50px; /* Ensure minimum width */
-  min-height: 50px; /* Ensure minimum height */
+  min-width: 50px;
+  min-height: 50px;
 }
 
 .logo img {
@@ -79,7 +84,14 @@ body {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  background: var(--primary); /* Fallback background */
+  background: var(--primary);
+}
+
+.logo-text {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .nav-right {
@@ -405,6 +417,59 @@ body {
   opacity: 0.8;
   line-height: 1.4;
 }
+
+.roadmap-section {
+  padding: 5rem 10%;
+  background: rgba(255, 64, 129, 0.03);
+}
+
+.roadmap-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.roadmap-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 15px;
+  transition: transform 0.3s;
+  border: 1px solid rgba(145, 133, 99, 0.2);
+}
+
+.roadmap-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.roadmap-phase {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary);
+}
+
+.roadmap-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.roadmap-item ul li {
+  margin: 0.8rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.roadmap-item ul li:before {
+  content: '•';
+  color: var(--primary);
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -412,15 +477,19 @@ body {
 <body>
 
 <nav class="navbar">
-  <div class="logo">
-    <img src="imag.png" 
-     alt="Gorirat face" width="50" height="50"
-     onerror="this.src='imag.png'"> <!-- Added fallback -->
+  <div class="logo-container">
+    <div class="logo">
+      <img src="/CC_20241114_163008.png" 
+        alt="Stylized illustration of a gorilla face against peach-colored circular background, with dark brown fur and serious expression" width="50" height="50"
+        onerror="this.src='CC_20241114_163008.png'">
+    </div>
+    <span class="logo-text">GORIRAT</span>
   </div>
   <div class="nav-right">
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
       <a href="#nfts">NFTs</a>
     </div>
     <div class="social-icons">
@@ -429,7 +498,7 @@ body {
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
         </svg>
       </a>
-      <a href="https://t.me/gorirat_announcements" aria-label="Join Telegram">
+      <a href="https://t.me/gorirat" aria-label="Join Telegram">
         <svg viewBox="0 0 24 24">
           <path d="M20.665 3.717l-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42l10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701l-.321 4.843c.47 0 .677-.216.94-.477l2.26-2.196l4.694 3.462c.865.477 1.485.232 1.698-.792l3.073-14.503c.314-1.26-.473-1.833-1.522-1.304z"/>
         </svg>
@@ -442,28 +511,28 @@ body {
   <div class="hero-content">
     <h1>Welcome to GORIRAT</h1>
     <p>The next generation meme token powered by community and innovation. Join us in our journey to revolutionize the crypto space with unique features, strong community governance, and sustainable tokenomics.</p>
-    <a href="https://quickswap.exchange/#/swap?currency0=ETH&currency1=0x5ECff4E9B2d6d9E932ED927528458900a66555f7&swapIndex=0" class="cta-button">Buy GORIRAT Soon</a>
+    <a href="https://example.com/buy" class="cta-button">Buy SHINA Now</a>
     
     <div style="margin-top: 1.5rem;">
-      <a href="https://polygonscan.com/token/0x5ecff4e9b2d6d9e932ed927528458900a66555f7" class="cta-button" style="font-size: 0.9rem;">Contract</a>
+      <a href="https://example.com/contract" class="cta-button" style="font-size: 0.9rem;">View Contract</a>
     </div>
   </div>
 </section>
 
 <section class="features-section" id="about">
-  <h2 class="section-title">Why Choose GORIRAT?</h2>
+  <h2 class="section-title">About</h2>
   <div class="features-grid">
     <div class="feature-card">
-      <h3>Community Driven</h3>
-      <p>Our community is at the heart of everything we do. Participate in governance decisions and shape the future of GORIRAT.</p>
+      <h3>Executive Summary</h3>
+      <p>Gorirat is an innovative memecoin designed to combine humor and meme culture with blockchain technology. Our mission is to create a vibrant and fun community while providing a secure and efficient platform for digital transactions.</p>
     </div>
     <div class="feature-card">
-      <h3>Secure & Transparent</h3>
-      <p>Built on advanced blockchain technology with fully audited smart contracts and locked liquidity for your peace of mind.</p>
+      <h3>Introduction</h3>
+      <p>Memecoins have gained popularity in recent years, capturing the imagination of investors and cryptocurrency enthusiasts. Gorirat is distinguished by its focus on community and its commitment to transparency and security.</p>
     </div>
     <div class="feature-card">
-      <h3>Rewarding Ecosystem</h3>
-      <p>Earn rewards through staking, farming, and participating in community events. Your loyalty gets rewarded.</p>
+      <h3>Key Features</h3>
+      <p>Fast and Secure Transactions: We use blockchain technology to ensure that all transactions are fast and secure. Active Community: We foster an active and engaged community through events, contests and rewards. Transparency: All important moves and decisions are openly communicated to the community.</p>
     </div>
   </div>
 </section>
@@ -472,30 +541,42 @@ body {
   <h2 class="section-title">Tokenomics</h2>
   <div class="tokenomics-grid">
     <div class="tokenomics-card">
-      <h3>80%</h3>
+      <h3>50%</h3>
       <p>Airdrop</p>
-      <p>8,000,000,000 GRT</p>
+      <p>5,000,000,000 SHINA</p>
+    </div>
+    <div class="tokenomics-card">
+      <h3>20%</h3>
+      <p>Community Rewards</p>
+      <p>2,000,000,000 GRT</p>
     </div>
     <div class="tokenomics-card">
       <h3>15%</h3>
-      <p>Marketing</p>
+      <p>Marketing & Partnerships</p>
       <p>1,500,000,000 GRT</p>
     </div>
     <div class="tokenomics-card">
+      <h3>10%</h3>
+      <p>Development Team</p>
+      <p>1,000,000,000 GRT</p>
+    </div>
+    <div class="tokenomics-card">
       <h3>5%</h3>
-      <p>liquidity</p>
+      <p>Reserves & Liquidity</p>
       <p>500,000,000 GRT</p>
     </div>
   </div>
 
   <div class="tokenomics-description">
     <h3>Token Distribution & Economics</h3>
-    <p>Total Supply: 10,000,000,000 GRT</p>
-    <p>GORIRAT implements a fair and sustainable tokenomics model designed to reward holders and support long-term growth.</p>
+    <p>Total Supply: 10,000,000,000 SHINA</p>
+    <p>SHINA implements a fair and sustainable tokenomics model with the following distribution:</p>
     <ul>
-      <li>Zero team tokens - 100% fair launch</li>
-      <li>Contract will be renounced after launch</li>
-      <li>LP tokens will be locked for 1 year initially</li>
+      <li>50% allocated for Airdrop</li>
+      <li>20% for Community Rewards</li>
+      <li>15% for Marketing & Partnerships</li>
+      <li>10% for Development Team</li>
+      <li>5% for Reserves & Liquidity</li>
     </ul>
   </div>
 
@@ -504,15 +585,23 @@ body {
   <div class="chart-legend">
     <div class="legend-item">
       <div class="legend-color" style="background: #d4af37"></div>
-      <span>Airdrop (80%)</span>
+      <span>Airdrop (50%)</span>
     </div>
     <div class="legend-item">
       <div class="legend-color" style="background: #c19a49"></div>
-      <span>Marketing (15%)</span>
+      <span>Community Rewards (20%)</span>
     </div>
     <div class="legend-item">
       <div class="legend-color" style="background: #b38a38"></div>
-      <span>liquidity (5%)</span>
+      <span>Marketing & Partnerships (15%)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #a67b27"></div>
+      <span>Development Team (10%)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-color" style="background: #955c16"></div>
+      <span>Reserves & Liquidity (5%)</span>
     </div>
   </div>
 </section>
@@ -522,19 +611,58 @@ body {
   <div class="nft-grid">
     <div class="nft-card">
       <div class="nft-image">
-        <img src="Logopit_1731959963808.jpg" 
+        <img src="/fCJgZf2p_hvWMX4PvW9C4fUf_yfty0KxNB8zimTjhUka0LTPZNhxz4ChaBmZBZ355brSeQxlUtf-Rfvhwwaj3NOW4SocWc0AhmLlQA.png" 
              alt="A cartoon illustration of a monkey wearing sunglasses, a halo, and a necklace made of bones, smoking a cigar"
              width="280" height="280">
       </div>
-      <h3>GORIRAT</h3>
+      <h3>Golden GORIRAT</h3>
       <p>Legendary tier NFT with exclusive holder benefits and staking multipliers.</p>
+    </div>
+  </div>
+</section>
+
+<section class="roadmap-section" id="roadmap">
+  <h2 class="section-title">Roadmap</h2>
+  <div class="roadmap-container">
+    <div class="roadmap-item">
+      <div class="roadmap-phase">Phase 1</div>
+      <ul>
+        <li>Token launch</li>
+        <li>NFT Collection Launch</li>
+        <li>Initial airdrop</li>
+      </ul>
+    </div>
+    
+    <div class="roadmap-item">
+      <div class="roadmap-phase">Phase 2</div>
+      <ul>
+        <li>DEX Listing (quickswap)</li>
+        <li>Launch of the rewards platform</li>
+        
+      </ul>
+    </div>
+    
+    <div class="roadmap-item">
+      <div class="roadmap-phase">Phase 3</div>
+      <ul>
+        <li>Community expansion</li>        
+        <li>Community Events & Contests</li>
+        <li>Strategic partnerships</li>
+      </ul>
+    </div>
+    
+    <div class="roadmap-item">
+      <div class="roadmap-phase">Phase 4</div>
+      <ul>
+        <li>Implementation of new features and improvements based on community feedback.</li>        
+      </ul>
     </div>
   </div>
 </section>
 
 <footer class="footer">
   <p>Contact: <a href="mailto:soport@gorirat.com" style="color: var(--primary); text-decoration: none;">soport@gorirat.com</a></p>
-  <p>© 2024 GORIRAT Token. All rights reserved.</p>
+  <p>© 2024 SHINA Token. All rights reserved.</p>
 </footer>
 
 <script>
@@ -565,7 +693,6 @@ function createParticles() {
     particlesContainer.appendChild(particle);
   }
 
-  // Recreate particles periodically to maintain the effect
   setInterval(() => {
     particlesContainer.innerHTML = '';
     for (let i = 0; i < 100; i++) {
@@ -610,15 +737,15 @@ document.querySelectorAll('.nav-links a').forEach(anchor => {
   });
 });
 
-// Add Distribution Chart
+// Update the distribution chart data
 const ctx = document.getElementById('distributionChart').getContext('2d');
 new Chart(ctx, {
     type: 'doughnut',
     data: {
-        labels: ['Airdrop', 'Marketing', 'Liquidity'],
+        labels: ['Airdrop', 'Community Rewards', 'Marketing & Partnerships', 'Development Team', 'Reserves & Liquidity'],
         datasets: [{
-            data: [80, 15, 5],
-            backgroundColor: ['#d4af37', '#c19a49', '#b38a38'], // Changed to warm golden colors
+            data: [50, 20, 15, 10, 5],
+            backgroundColor: ['#d4af37', '#c19a49', '#b38a38', '#a67b27', '#955c16'],
             borderColor: 'rgba(26, 26, 26, 0.8)',
             borderWidth: 2
         }]
@@ -640,5 +767,4 @@ new Chart(ctx, {
 </script>
 
 </body>
-  </html>
-                                                                        
+        </html>
